@@ -1,0 +1,14 @@
+name: flutter_modifier_ui_example
+description: An example of using the flutter_modifier_ui package.
+publish_to: 'none'
+
+environment:
+  sdk: ^3.11.1
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_modifier_ui:
+    path: ../
