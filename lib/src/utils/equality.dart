@@ -1,11 +1,6 @@
-// Copyright 2026 Wilfried Bodjoko. All rights reserved.
-// Licensed under the Apache License, Version 2.0.
-
-library;
-
 import '../modifier.dart';
 
-@pragma('vm:prefer-inline')
+/// Determines whether two iterables are equal.
 bool iterableEquals(Iterable<Object?> a, Iterable<Object?> b) {
   if (identical(a, b)) return true;
   if (a.length != b.length) return false;
@@ -25,6 +20,7 @@ bool iterableEquals(Iterable<Object?> a, Iterable<Object?> b) {
   return true;
 }
 
+/// Determines whether two lists are equal.
 @pragma('vm:prefer-inline')
 bool equals(List<Object?>? a, List<Object?>? b) {
   if (identical(a, b)) return true;
@@ -32,6 +28,7 @@ bool equals(List<Object?>? a, List<Object?>? b) {
   return iterableEquals(a, b);
 }
 
+/// Determines whether two objects are equal.
 @pragma('vm:prefer-inline')
 bool objectsEquals(Object? a, Object? b) {
   if (identical(a, b)) return true;
@@ -44,17 +41,27 @@ bool objectsEquals(Object? a, Object? b) {
   return a == b;
 }
 
+/// Determines whether two sets are equal.
 bool setEquals(Set<Object?> a, Set<Object?> b) {
   if (identical(a, b)) return true;
   if (a.length != b.length) return false;
+
   for (final element in a) {
-    if (!b.contains(element) && !b.any((e) => objectsEquals(element, e))) {
-      return false;
+    if (b.contains(element)) continue;
+
+    bool found = false;
+    for (final bElement in b) {
+      if (objectsEquals(element, bElement)) {
+        found = true;
+        break;
+      }
     }
+    if (!found) return false;
   }
   return true;
 }
 
+/// Determines whether two maps are equal
 bool mapEquals(Map<Object?, Object?> a, Map<Object?, Object?> b) {
   if (identical(a, b)) return true;
   if (a.length != b.length) return false;
@@ -64,16 +71,28 @@ bool mapEquals(Map<Object?, Object?> a, Map<Object?, Object?> b) {
   return true;
 }
 
+/// Returns a `hashCode` for [props].
+@pragma('vm:prefer-inline')
 int hashProps(Iterable<Object?>? props) {
-  return _finish(props == null ? 0 : props.fold(0, _combine));
+  if (props == null) return _finish(0);
+
+  int hash = 0;
+  for (final prop in props) {
+    hash = _combine(hash, prop);
+  }
+  return _finish(hash);
 }
 
+/// Jenkins Hash Functions
 int _combine(int hash, Object? object) {
+  if (object == null) return _combineHash(hash, 0);
+
   if (object is Map) {
     int mapHash = 0;
-
-    for (final entry in object.entries) {
-      mapHash ^= _combine(0, [entry.key, entry.value]);
+    // OPTIMISÉ : On utilise .keys au lieu de .entries pour éviter l'allocation de MapEntry
+    for (final key in object.keys) {
+      int entryHash = _combine(0, key);
+      mapHash ^= _combine(entryHash, object[key]);
     }
     return hash ^ mapHash;
   }
@@ -87,10 +106,11 @@ int _combine(int hash, Object? object) {
   }
 
   if (object is Iterable) {
+    int iterHash = 0;
     for (final value in object) {
-      hash = _combineHash(hash, value.hashCode);
+      iterHash = _combine(iterHash, value);
     }
-    return hash ^ object.length;
+    return hash ^ iterHash;
   }
 
   return _combineHash(hash, object.hashCode);

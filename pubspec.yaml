@@ -1,6 +1,6 @@
 name: flutter_modifier_ui
 description: High-performance linear modifier chains for flutter UIs with compile-time layout scopes, structural caching, and widget teleportation.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/bodjokowilfried29/flutter_modifier_ui
 issue_tracker: https://github.com/bodjokowilfried29/flutter_modifier_ui/issues
 

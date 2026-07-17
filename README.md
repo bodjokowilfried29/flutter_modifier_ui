@@ -1,4 +1,4 @@
-# Flutter UI Modifier
+# Flutter Modifier UI
 
 <!--
 This README describes the package. If you publish this package to pub.dev,
@@ -16,7 +16,7 @@ and the Flutter guide for
 Create Flutter user interfaces using linear modifier chains and avoid recalculating layout
 hierarchies that haven't changed.
 
-## Why Flutter UI Modifier?
+## Why Flutter Modifier UI?
 
 Flutter widgets are beautifully composable, but deeply nested structures quickly become difficult to
 read, hard to navigate, and costly to maintain.
@@ -70,7 +70,7 @@ import 'package:flutter_modifier_ui/flutter_modifier_ui.dart';
 In Flutter, placing certain widgets in the wrong place (like an `Expanded` outside a `Flex` layout)
 causes runtime layout exceptions.
 
-**Flutter UI Modifier** enforces these rules at **compile time** using generic Scopes (
+**Flutter Modifier UI** enforces these rules at **compile time** using generic Scopes (
 `Modifier<Scope>`). Specifying a scope unlocks only the exact modifiers authorized within that
 specific layout context.
 
@@ -183,30 +183,12 @@ CustomMultiChildLayout(
 When a parent widget updates state in Flutter, the framework travels down the Element tree,
 re-allocating configuration objects.
 
-**Flutter UI Modifier** optimizes this process by separating your structural layout from your
+**Flutter Modifier UI** optimizes this process by separating your structural layout from your
 dynamic
 data flow using a dual-layer pipeline:
 
 <div style="text-align: center;">
-
-```mermaid
-graph TD
-    classDef global fill: #1565C0, stroke: #2196F3, stroke-width: 2px, color: #fff, font-weight: bold;
-    classDef dynamic fill: #E65100, stroke: #FF9800, stroke-width: 2px, color: #fff, font-weight: bold;
-
-    ModifierNode(ModifierNode):::global
-    ModifierProvider(ModifierProvider):::global
-    CachedTree(Frozen Skeleton):::global
-    ModifierConsumer(ModifierConsumer):::global
-    Text(Updated Child Widget):::dynamic
-    Update(UpdateNotify):::dynamic
-
-    ModifierNode --- ModifierProvider
-    ModifierProvider --- CachedTree --- ModifierConsumer
-    ModifierProvider -.- Update -.-> ModifierConsumer
-    ModifierConsumer -.-> Text
-```
-
+<img src="https://raw.githubusercontent.com/bodjokowilfried29/flutter_modifier_ui/refs/heads/main/assets/flutter_modier_ui_diagram.jpg" width="50%" alt="flutter_modifier_node_architecture" />
 </div>
 
 ### 1. The Frozen Skeleton (Structural Caching)
@@ -218,7 +200,7 @@ haven't, **recompilation is aborted entirely**, freezing the layout skeleton in 
 
 ### 2. Widget Teleportation
 
-Widget Teleportation is the name given to Flutter UI Modifier's mechanism for delivering updated
+Widget Teleportation is the name given to Flutter Modifier UI's mechanism for delivering updated
 child
 widgets through an already cached layout structure.
 
@@ -255,7 +237,7 @@ class _CounterScreenState extends State<CounterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Flutter UI Modifier Counter')),
+      appBar: AppBar(title: const Text('Flutter Modifier UI Counter')),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -309,7 +291,7 @@ Text("Hello Flutter")(
 ✅ **Recommended (100% Cached)**
 
 Passa **Tear-off** (a direct reference to the method) instead. Dart preserves the function identity
-across rebuilds, allowing **Flutter UI Modifier** to instantly short-circuit rendering evaluations
+across rebuilds, allowing **Flutter Modifier UI** to instantly short-circuit rendering evaluations
 in
 *O(1)* and reuse the cached tree.
 
@@ -336,7 +318,7 @@ forces Dart to re-allocate all the modifier elements and reconstruct the binary 
 every frame.
 
 If your modifier chain is static and does not depend on local state or `BuildContext`, **extract it
-as a `static final` or top-level variable**. This allows **Flutter UI Modifier** to instantly skip
+as a `static final` or top-level variable**. This allows **Flutter Modifier UI** to instantly skip
 the
 entire composition phase with a single *O(1)* pointer-equality check.
 
@@ -372,10 +354,10 @@ Widget build(BuildContext context) {
 
 ## FAQ
 
-**Does Flutter UI Modifier replace standard Flutter widgets?** No. It acts as an architectural layer
+**Does Flutter Modifier UI replace standard Flutter widgets?** No. It acts as an architectural layer
 that composes native Flutter widgets under the hood using a cleaner, high performance API.
 
-**Can I create my own custom modifiers?** Yes, absolutely! **Flutter UI Modifier** is designed to be
+**Can I create my own custom modifiers?** Yes, absolutely! **Flutter Modifier UI** is designed to be
 fully extensible. You can easily create custom modifiers by following these steps:
 
 1. **Create a custom element class** that inherits froom `ModifierElement<S>` and implements its
