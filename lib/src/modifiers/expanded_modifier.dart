@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [Expanded] in a modifier chain.
 class _ExpandedElement<S extends FlexScope> extends ModifierElement<S> {
   final Key? key;
   final int flex;
@@ -24,6 +25,7 @@ class _ExpandedElement<S extends FlexScope> extends ModifierElement<S> {
 }
 
 extension ExpandedModifier<S extends FlexScope> on Modifier<S> {
+  /// Adds a [_ExpandedElement] to this [Modifier].
   Modifier<S> expanded({Key? key, int flex = 1}) {
     return then(_ExpandedElement<S>(key: key, flex: flex));
   }

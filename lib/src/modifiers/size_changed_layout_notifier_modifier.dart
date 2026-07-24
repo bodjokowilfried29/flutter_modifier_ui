@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SizeChangedLayoutNotifier] in a modifier chain.
 class _SizeChangedLayoutNotifierElement<S> extends ModifierElement<S> {
   final Key? key;
 
@@ -23,6 +24,7 @@ class _SizeChangedLayoutNotifierElement<S> extends ModifierElement<S> {
 }
 
 extension SizeChangedLayoutNotifierModifier<S> on Modifier<S> {
+  /// Adds a [_SizeChangedLayoutNotifierElement] to this [Modifier].
   Modifier<S> sizeChangedLayoutNotifier({Key? key}) {
     return then(_SizeChangedLayoutNotifierElement<S>(key: key));
   }

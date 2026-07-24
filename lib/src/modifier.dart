@@ -7,7 +7,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:meta/meta.dart';
 
-import '../src/utils/equality.dart';
+import '../src/utils/dart_equality_utils.dart';
 import 'modifier_node.dart';
 
 /// Scope that enables extensions for [Flex].
@@ -140,7 +140,7 @@ typedef ModifierProperties = List<Object?>;
 /// final modifier = const Modifier().padding(padding: EdgeInsets.all(8.0));
 /// ```
 @immutable
-abstract class Modifier<S> {
+abstract interface class Modifier<S> {
   /// Creates a neutral identity modifier.
   ///
   /// This redirecting factory ensures that initializing a base `Modifier<S>()`
@@ -171,12 +171,6 @@ abstract class Modifier<S> {
     if (this is UnModifier<S>) return other;
     return CombinedModifier<S>(this, other);
   }
-
-  @override
-  bool operator ==(Object other) => identical(this, other);
-
-  @override
-  int get hashCode => identityHashCode(this);
 }
 
 /// An empty, non-operational state in the modifier pipeline.
@@ -203,7 +197,7 @@ class UnModifier<S> implements Modifier<S> {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    return other is UnModifier<S> && runtimeType == other.runtimeType;
+    return other is UnModifier<S>;
   }
 
   @override
@@ -258,16 +252,21 @@ abstract class ModifierElement<S> implements Modifier<S> {
   @nonVirtual
   @pragma('vm:prefer-inline')
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! ModifierElement<S>) return false;
-    if (runtimeType != other.runtimeType) return false;
-    return iterableEquals(props, other.props);
+    return identical(this, other) ||
+        other is ModifierElement<S> &&
+            runtimeType == other.runtimeType &&
+            iterableEquals(props, other.props);
   }
 
   @override
   @nonVirtual
   @pragma('vm:prefer-inline')
   int get hashCode => runtimeType.hashCode ^ hashProps(props);
+
+  @override
+  String toString() {
+    return propsToString(runtimeType, props);
+  }
 }
 
 /// An internal composite node linking two distinct modifier branches together.
@@ -277,11 +276,9 @@ abstract class ModifierElement<S> implements Modifier<S> {
 /// deterministic and secure runtime performance.
 class CombinedModifier<S> implements Modifier<S> {
   /// The modifier sequence declared first (the outermost layout block).
-  @internal
   final Modifier<S> outer;
 
   /// The modifier sequence declared last (the innermost layout block).
-  @internal
   final Modifier<S> inner;
 
   /// Creates a composite binary node grouping the [outer] and [inner] chains.
@@ -293,11 +290,11 @@ class CombinedModifier<S> implements Modifier<S> {
 
   @override
   bool all(bool Function(ModifierElement<S> element) predicate) =>
-      outer.any(predicate) || inner.any(predicate);
+      outer.all(predicate) || inner.all(predicate);
 
   @override
   bool any(bool Function(ModifierElement<S> element) predicate) =>
-      outer.all(predicate) || inner.all(predicate);
+      outer.any(predicate) || inner.any(predicate);
 
   @override
   Modifier<S> then(Modifier<S> other) {
@@ -307,15 +304,31 @@ class CombinedModifier<S> implements Modifier<S> {
 
   @override
   bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    return other is CombinedModifier<S> &&
-        runtimeType == other.runtimeType &&
-        outer == other.outer &&
-        inner == other.inner;
+    return identical(this, other) ||
+        other is CombinedModifier<S> &&
+            runtimeType == other.runtimeType &&
+            outer == other.outer &&
+            inner == other.inner;
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, outer, inner);
+
+  @override
+  String toString() {
+    final buffer = StringBuffer('[');
+
+    foldIn(buffer, (acc, element) {
+      if (acc.length > 1) {
+        acc.write(',');
+      }
+      acc.write(element);
+      return acc;
+    });
+
+    buffer.write(']');
+    return buffer.toString();
+  }
 }
 
 /// A universal framework extension allowing any [Widget] to be processed by a [Modifier].

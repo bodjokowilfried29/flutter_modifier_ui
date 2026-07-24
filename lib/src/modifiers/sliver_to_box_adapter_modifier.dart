@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SliverToBoxAdapter] in a modifier chain.
 class _SliverToBoxAdapterElement<S extends SliverScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -24,6 +25,7 @@ class _SliverToBoxAdapterElement<S extends SliverScope>
 }
 
 extension SliverToBoxAdapterModifier<S extends SliverScope> on Modifier<S> {
+  /// Adds a [_SliverToBoxAdapterElement] to this [Modifier].
   Modifier<S> sliverToBoxAdapter({Key? key}) {
     return then(_SliverToBoxAdapterElement<S>(key: key));
   }

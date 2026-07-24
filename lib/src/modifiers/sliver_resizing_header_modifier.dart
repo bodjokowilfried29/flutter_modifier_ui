@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SliverResizingHeader] in a modifier chain.
 class _SliverResizingHeaderElement<S extends SliverScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -35,6 +36,7 @@ class _SliverResizingHeaderElement<S extends SliverScope>
 }
 
 extension SliverResizingHeaderModifier<S extends SliverScope> on Modifier<S> {
+  /// Adds a [_SliverResizingHeaderElement] to this [Modifier].
   Modifier<S> sliverResizingHeader({
     Key? key,
     Widget? minExtentPrototype,

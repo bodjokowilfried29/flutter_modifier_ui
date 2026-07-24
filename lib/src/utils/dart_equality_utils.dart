@@ -89,7 +89,6 @@ int _combine(int hash, Object? object) {
 
   if (object is Map) {
     int mapHash = 0;
-    // OPTIMISÉ : On utilise .keys au lieu de .entries pour éviter l'allocation de MapEntry
     for (final key in object.keys) {
       int entryHash = _combine(0, key);
       mapHash ^= _combine(entryHash, object[key]);
@@ -127,4 +126,8 @@ int _finish(int hash) {
   hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
   hash = hash ^ (hash >> 11);
   return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
+}
+
+String propsToString(Type runtimeType, List<Object?> props) {
+  return '$runtimeType(${props.map((prop) => prop.toString()).join(', ')})';
 }

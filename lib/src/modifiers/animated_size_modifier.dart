@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents an [AnimatedSize] in a modifier chain.
 class _AnimatedSizeElement<S> extends ModifierElement<S> {
   final Key? key;
   final AlignmentGeometry alignment;
@@ -54,6 +55,7 @@ class _AnimatedSizeElement<S> extends ModifierElement<S> {
 }
 
 extension AnimatedSizeModifier<S> on Modifier<S> {
+  /// Adds an [_AnimatedSizeElement] to this [Modifier].
   Modifier<S> animatedSize({
     Key? key,
     AlignmentGeometry alignment = Alignment.center,

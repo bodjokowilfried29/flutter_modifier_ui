@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [FittedBox] in a modifier chain.
 class _FittedBoxElement<S> extends ModifierElement<S> {
   final Key? key;
   final BoxFit fit;
@@ -37,6 +38,7 @@ class _FittedBoxElement<S> extends ModifierElement<S> {
 }
 
 extension FittedBoxModifier<S> on Modifier<S> {
+  /// Adds a [_FittedBoxElement] to this [Modifier].
   Modifier<S> fittedBox({
     Key? key,
     BoxFit fit = BoxFit.contain,

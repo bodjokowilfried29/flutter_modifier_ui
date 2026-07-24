@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [LayoutId] in a modifier chain.
 class _LayoutIdElement<S extends MultiChildLayoutScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -25,6 +26,7 @@ class _LayoutIdElement<S extends MultiChildLayoutScope>
 }
 
 extension LayoutIdModifier<S extends MultiChildLayoutScope> on Modifier<S> {
+  /// Adds a [_LayoutIdElement] to this [Modifier].
   Modifier<S> layoutId({Key? key, required Object id}) {
     return then(_LayoutIdElement<S>(key: key, id: id));
   }

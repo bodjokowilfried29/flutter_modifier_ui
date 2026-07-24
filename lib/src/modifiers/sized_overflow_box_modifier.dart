@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SizedOverflowBox] in a modifier chain.
 class _SizedOverflowBoxElement<S> extends ModifierElement<S> {
   final Key? key;
   final Size size;
@@ -34,6 +35,7 @@ class _SizedOverflowBoxElement<S> extends ModifierElement<S> {
 }
 
 extension SizedOverflowBoxModifier<S> on Modifier<S> {
+  /// Adds a [_SizedOverflowBoxElement] to this [Modifier].
   Modifier<S> sizedOverflowBox({
     Key? key,
     required Size size,

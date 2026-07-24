@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [Transform] in a modifier chain.
 class _TransformElement<S> extends ModifierElement<S> {
   final Key? key;
   final Matrix4 transform;
@@ -50,6 +51,7 @@ class _TransformElement<S> extends ModifierElement<S> {
 }
 
 extension TransformModifier<S> on Modifier<S> {
+  /// Adds a [_TransformElement] to this [Modifier].
   Modifier<S> transform({
     Key? key,
     required Matrix4 transform,
@@ -71,6 +73,7 @@ extension TransformModifier<S> on Modifier<S> {
   }
 }
 
+/// Represents a [Transform.rotate] in a modifier chain.
 class _TransformRotateElement<S> extends ModifierElement<S> {
   final Key? key;
   final double angle;
@@ -116,6 +119,7 @@ class _TransformRotateElement<S> extends ModifierElement<S> {
 }
 
 extension TransformRotateModifier<S> on Modifier<S> {
+  /// Adds a [_TransformRotateElement] to this [Modifier].
   Modifier<S> transformRotate({
     Key? key,
     required double angle,
@@ -137,6 +141,7 @@ extension TransformRotateModifier<S> on Modifier<S> {
   }
 }
 
+/// Represents a [Transform.translate] in a modifier chain.
 class _TransformTranslateElement<S> extends ModifierElement<S> {
   final Key? key;
   final Offset offset;
@@ -174,6 +179,7 @@ class _TransformTranslateElement<S> extends ModifierElement<S> {
 }
 
 extension TransformTranslateModifier<S> on Modifier<S> {
+  /// Adds a [_TransformTranslateElement] to this [Modifier].
   Modifier<S> transformTranslate({
     Key? key,
     required Offset offset,
@@ -191,6 +197,7 @@ extension TransformTranslateModifier<S> on Modifier<S> {
   }
 }
 
+/// Represents a [Transform.scale] in a modifier chain.
 class _TransformScaleElement<S> extends ModifierElement<S> {
   final Key? key;
   final double? scale;
@@ -244,6 +251,7 @@ class _TransformScaleElement<S> extends ModifierElement<S> {
 }
 
 extension TransformScaleModifier<S> on Modifier<S> {
+  /// Adds a [_TransformScaleElement] to this [Modifier].
   Modifier<S> transformScale({
     Key? key,
     double? scale,
@@ -269,6 +277,7 @@ extension TransformScaleModifier<S> on Modifier<S> {
   }
 }
 
+/// Represents a [Transform.flip] in a modifier chain.
 class _TransformFlipElement<S> extends ModifierElement<S> {
   final Key? key;
   final bool flipX;
@@ -314,6 +323,7 @@ class _TransformFlipElement<S> extends ModifierElement<S> {
 }
 
 extension TransformFlipModifier<S> on Modifier<S> {
+  /// Adds a [_TransformFlipElement] to this [Modifier].
   Modifier<S> transformFlip({
     Key? key,
     bool flipX = false,

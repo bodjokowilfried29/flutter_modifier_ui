@@ -8,6 +8,7 @@ import 'package:flutter/rendering.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SnapshotWidget] in a modifier chain.
 class _SnapshotWidgetElement<S> extends ModifierElement<S> {
   final Key? key;
   final SnapshotMode mode;
@@ -43,6 +44,7 @@ class _SnapshotWidgetElement<S> extends ModifierElement<S> {
 }
 
 extension SnapshotWidgetModifier<S> on Modifier<S> {
+  /// Adds a [_SnapshotWidgetElement] to this [Modifier].
   Modifier<S> snapshotWidget({
     Key? key,
     SnapshotMode mode = SnapshotMode.normal,

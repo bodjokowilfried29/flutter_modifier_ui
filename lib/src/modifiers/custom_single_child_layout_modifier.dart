@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [CustomSingleChildLayout] in a modifier chain.
 class _CustomSingleChildLayoutElement<S> extends ModifierElement<S> {
   final Key? key;
   final SingleChildLayoutDelegate delegate;
@@ -24,6 +25,7 @@ class _CustomSingleChildLayoutElement<S> extends ModifierElement<S> {
 }
 
 extension CustomSingleChildLayoutModifier<S> on Modifier<S> {
+  /// Adds a [_CustomSingleChildLayoutElement] to this [Modifier].
   Modifier<S> customSingleChildLayout({
     Key? key,
     required SingleChildLayoutDelegate delegate,

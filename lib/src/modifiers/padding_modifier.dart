@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [Padding] in a modifier chain.
 class _PaddingElement<S> extends ModifierElement<S> {
   final Key? key;
   final EdgeInsetsGeometry padding;
@@ -24,6 +25,7 @@ class _PaddingElement<S> extends ModifierElement<S> {
 }
 
 extension PaddingModifier<S> on Modifier<S> {
+  /// Adds a [_PaddingElement] to this [Modifier].
   Modifier<S> padding({Key? key, required EdgeInsetsGeometry padding}) {
     return then(_PaddingElement<S>(key: key, padding: padding));
   }

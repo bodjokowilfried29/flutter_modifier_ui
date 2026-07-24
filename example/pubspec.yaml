@@ -10,5 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+
   flutter_modifier_ui:
     path: ../
+

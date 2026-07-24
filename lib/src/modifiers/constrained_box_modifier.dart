@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [ConstrainedBox] in a modifier chain.
 class _ConstrainedBoxElement<S> extends ModifierElement<S> {
   final Key? key;
   final BoxConstraints constraints;
@@ -24,6 +25,7 @@ class _ConstrainedBoxElement<S> extends ModifierElement<S> {
 }
 
 extension ConstrainedBoxModifier<S> on Modifier<S> {
+  /// Adds a [_ConstrainedBoxElement] to this [Modifier].
   Modifier<S> constrainedBox({Key? key, required BoxConstraints constraints}) {
     return then(_ConstrainedBoxElement<S>(key: key, constraints: constraints));
   }

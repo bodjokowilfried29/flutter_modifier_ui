@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents an [AnimatedRotation] in a modifier chain.
 class _AnimatedRotationElement<S> extends ModifierElement<S> {
   final Key? key;
   final double turns;
@@ -54,6 +55,7 @@ class _AnimatedRotationElement<S> extends ModifierElement<S> {
 }
 
 extension AnimatedRotationModifier<S> on Modifier<S> {
+  /// Adds an [_AnimatedRotationElement] to this [Modifier].
   Modifier<S> animatedRotation({
     Key? key,
     required double turns,

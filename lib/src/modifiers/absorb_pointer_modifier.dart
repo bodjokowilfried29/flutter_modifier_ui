@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents an [AbsorbPointer] in a modifier chain.
 class _AbsorbPointerElement<S> extends ModifierElement<S> {
   final Key? key;
   final bool absorbing;
@@ -34,6 +35,7 @@ class _AbsorbPointerElement<S> extends ModifierElement<S> {
 }
 
 extension AbsorbPointerModifier<S> on Modifier<S> {
+  /// Adds an [_AbsorbPointerElement] to this [Modifier].
   Modifier<S> absorbPointer({
     Key? key,
     bool absorbing = true,

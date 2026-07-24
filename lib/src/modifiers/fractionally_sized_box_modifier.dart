@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [FractionallySizedBox] in a modifier chain.
 class _FractionallySizedBoxElement<S> extends ModifierElement<S> {
   final Key? key;
   final AlignmentGeometry alignment;
@@ -37,6 +38,7 @@ class _FractionallySizedBoxElement<S> extends ModifierElement<S> {
 }
 
 extension FractionallySizedBoxModifier<S> on Modifier<S> {
+  /// Adds a [_FractionallySizedBoxElement] to this [Modifier].
   Modifier<S> fractionallySizedBox({
     Key? key,
     AlignmentGeometry alignment = Alignment.center,

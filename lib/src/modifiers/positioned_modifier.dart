@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [Positioned] in a modifier chain.
 class _PositionedElement<S extends StackScope> extends ModifierElement<S> {
   final Key? key;
   final double? left;
@@ -54,6 +55,7 @@ class _PositionedElement<S extends StackScope> extends ModifierElement<S> {
 }
 
 extension PositionedModifier<S extends StackScope> on Modifier<S> {
+  /// Adds a [_PositionedElement] to this [Modifier].
   Modifier<S> positioned({
     Key? key,
     double? left,
@@ -77,6 +79,7 @@ extension PositionedModifier<S extends StackScope> on Modifier<S> {
   }
 }
 
+/// Represents a [Positioned.fromRect] in a modifier chain.
 class _PositionedFromRectElement<S extends StackScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -97,11 +100,13 @@ class _PositionedFromRectElement<S extends StackScope>
 }
 
 extension PositionedFromRectModifier<S extends StackScope> on Modifier<S> {
+  /// Adds a [_PositionedFromRectElement] to this [Modifier].
   Modifier<S> positionedFromRect({Key? key, required Rect rect}) {
     return then(_PositionedFromRectElement<S>(key: key, rect: rect));
   }
 }
 
+/// Represents a [Positioned.fromRelativeRect] in a modifier chain.
 class _PositionedFromRelativeRectElement<S extends StackScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -123,6 +128,7 @@ class _PositionedFromRelativeRectElement<S extends StackScope>
 
 extension PositionedFromRelativeRectModifier<S extends StackScope>
     on Modifier<S> {
+  /// Adds a [_PositionedFromRelativeRectElement] to this [Modifier].
   Modifier<S> positionedFromRelativeRect({
     Key? key,
     required RelativeRect rect,
@@ -131,6 +137,7 @@ extension PositionedFromRelativeRectModifier<S extends StackScope>
   }
 }
 
+/// Represents a [Positioned.fill] in a modifier chain.
 class _PositionedFillElement<S extends StackScope> extends ModifierElement<S> {
   final Key? key;
   final double? left;
@@ -166,6 +173,7 @@ class _PositionedFillElement<S extends StackScope> extends ModifierElement<S> {
 }
 
 extension PositionedFillModifier<S extends StackScope> on Modifier<S> {
+  /// Adds a [_PositionedFillElement] to this [Modifier].
   Modifier<S> positionedFill({
     Key? key,
     double? left = 0.0,
@@ -185,6 +193,7 @@ extension PositionedFillModifier<S extends StackScope> on Modifier<S> {
   }
 }
 
+/// Represents a [Positioned.directional] in a modifier chain.
 class _PositionedDirectionalElement<S extends StackScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -239,6 +248,7 @@ class _PositionedDirectionalElement<S extends StackScope>
 }
 
 extension PositionedDirectionalModifier<S extends StackScope> on Modifier<S> {
+  /// Adds a [_PositionedDirectionalElement] to this [Modifier].
   Modifier<S> positionedDirectional({
     Key? key,
     required TextDirection textDirection,

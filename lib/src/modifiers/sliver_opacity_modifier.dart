@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SliverOpacity] in a modifier chain.
 class _SliverOpacityElement<S extends SliverScope> extends ModifierElement<S> {
   final Key? key;
   final double opacity;
@@ -34,6 +35,7 @@ class _SliverOpacityElement<S extends SliverScope> extends ModifierElement<S> {
 }
 
 extension SliverOpacityModifier<S extends SliverScope> on Modifier<S> {
+  /// Adds a [_SliverOpacityElement] to this [Modifier].
   Modifier<S> sliverOpacity({
     Key? key,
     required double opacity,

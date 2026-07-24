@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [Center] in a modifier chain.
 class _CenterElement<S> extends ModifierElement<S> {
   final Key? key;
   final double? widthFactor;
@@ -30,6 +31,7 @@ class _CenterElement<S> extends ModifierElement<S> {
 }
 
 extension CenterModifier<S> on Modifier<S> {
+  /// Adds a [_CenterElement] to this [Modifier].
   Modifier<S> center({Key? key, double? widthFactor, double? heightFactor}) {
     return then(
       _CenterElement<S>(

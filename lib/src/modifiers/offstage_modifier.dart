@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [Offstage] in a modifier chain.
 class _OffstageElement<S> extends ModifierElement<S> {
   final Key? key;
   final bool offstage;
@@ -24,6 +25,7 @@ class _OffstageElement<S> extends ModifierElement<S> {
 }
 
 extension OffstageModifier<S> on Modifier<S> {
+  /// Adds a [_OffstageElement] to this [Modifier].
   Modifier<S> offstage({Key? key, bool offstage = true}) {
     return then(_OffstageElement<S>(key: key, offstage: offstage));
   }

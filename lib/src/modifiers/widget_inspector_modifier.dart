@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [WidgetInspector] in a modifier chain.
 class _WidgetInspectorElement<S> extends ModifierElement<S> {
   final Key? key;
   final Widget Function(
@@ -61,6 +62,7 @@ class _WidgetInspectorElement<S> extends ModifierElement<S> {
 }
 
 extension WidgetInspectorModifier<S> on Modifier<S> {
+  /// Adds a [_WidgetInspectorElement] to this [Modifier].
   Modifier<S> widgetInspector({
     Key? key,
     required Widget Function(

@@ -1,6 +1,10 @@
-## 1.0.1
+## 1.0.2
 
-* Initial release of Flutter UI Modifier.
-* Linear modifier chains for cleaner UI code.
-* Frozen Skeleton & Widget Teleportation.
-* High-performance equality engine with custom modifier support.
+### Fixes
+
+- Fixed `any` and `all` implementations in `CombinedModifier`.
+
+### Features
+
+- Added `toString()` implementations for `ModifierElement` and `CombinedModifier` to improve
+  debugging output.

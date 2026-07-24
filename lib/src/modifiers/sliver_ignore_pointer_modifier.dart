@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SliverIgnorePointer] in a modifier chain.
 class _SliverIgnorePointerElement<S extends SliverScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -35,6 +36,7 @@ class _SliverIgnorePointerElement<S extends SliverScope>
 }
 
 extension SliverIgnorePointerModifier<S extends SliverScope> on Modifier<S> {
+  /// Adds a [_SliverIgnorePointerElement] to this [Modifier].
   Modifier<S> sliverIgnorePointer({
     Key? key,
     bool ignoring = true,

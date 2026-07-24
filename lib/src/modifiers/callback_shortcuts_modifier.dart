@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [CallbackShortcuts] in a modifier chain.
 class _CallbackShortcutsElement<S> extends ModifierElement<S> {
   final Key? key;
   final Map<ShortcutActivator, void Function()> bindings;
@@ -24,6 +25,7 @@ class _CallbackShortcutsElement<S> extends ModifierElement<S> {
 }
 
 extension CallbackShortcutsModifier<S> on Modifier<S> {
+  /// Adds a [_CallbackShortcutsElement] to this [Modifier].
   Modifier<S> callbackShortcuts({
     Key? key,
     required Map<ShortcutActivator, void Function()> bindings,

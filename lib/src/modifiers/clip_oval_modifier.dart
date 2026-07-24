@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [ClipOval] in a modifier chain.
 class _ClipOvalElement<S> extends ModifierElement<S> {
   final Key? key;
   final CustomClipper<Rect>? clipper;
@@ -34,6 +35,7 @@ class _ClipOvalElement<S> extends ModifierElement<S> {
 }
 
 extension ClipOvalModifier<S> on Modifier<S> {
+  /// Adds a [_ClipOvalElement] to this [Modifier].
   Modifier<S> clipOval({
     Key? key,
     CustomClipper<Rect>? clipper,

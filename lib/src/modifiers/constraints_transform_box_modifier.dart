@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [ConstraintsTransformBox] in a modifier chain.
 class _ConstraintsTransformBoxElement<S> extends ModifierElement<S> {
   final Key? key;
   final TextDirection? textDirection;
@@ -50,6 +51,7 @@ class _ConstraintsTransformBoxElement<S> extends ModifierElement<S> {
 }
 
 extension ConstraintsTransformBoxModifier<S> on Modifier<S> {
+  /// Adds a [_ConstraintsTransformBoxElement] to this [Modifier].
   Modifier<S> constraintsTransformBox({
     Key? key,
     TextDirection? textDirection,

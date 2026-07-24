@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [IntrinsicHeight] in a modifier chain.
 class _IntrinsicHeightElement<S> extends ModifierElement<S> {
   final Key? key;
 
@@ -23,6 +24,7 @@ class _IntrinsicHeightElement<S> extends ModifierElement<S> {
 }
 
 extension IntrinsicHeightModifier<S> on Modifier<S> {
+  /// Adds a [_IntrinsicHeightElement] to this [Modifier].
   Modifier<S> intrinsicHeight({Key? key}) {
     return then(_IntrinsicHeightElement<S>(key: key));
   }

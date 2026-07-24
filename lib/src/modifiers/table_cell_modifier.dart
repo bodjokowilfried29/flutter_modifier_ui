@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [TableCell] in a modifier chain.
 class _TableCellElement<S extends TableRowScope> extends ModifierElement<S> {
   final Key? key;
   final TableCellVerticalAlignment? verticalAlignment;
@@ -28,6 +29,7 @@ class _TableCellElement<S extends TableRowScope> extends ModifierElement<S> {
 }
 
 extension TableCellModifier<S extends TableRowScope> on Modifier<S> {
+  /// Adds a [_TableCellElement] to this [Modifier].
   Modifier<S> tableCell({
     Key? key,
     TableCellVerticalAlignment? verticalAlignment,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents an [AnimatedOpacity] in a modifier chain.
 class _AnimatedOpacityElement<S> extends ModifierElement<S> {
   final Key? key;
   final double opacity;
@@ -50,6 +51,7 @@ class _AnimatedOpacityElement<S> extends ModifierElement<S> {
 }
 
 extension AnimatedOpacityModifier<S> on Modifier<S> {
+  /// Adds an [_AnimatedOpacityElement] to this [Modifier].
   Modifier<S> animatedOpacity({
     Key? key,
     required double opacity,

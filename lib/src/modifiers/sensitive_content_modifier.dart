@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SensitiveContent] in a modifier chain.
 class _SensitiveContentElement<S> extends ModifierElement<S> {
   final Key? key;
   final ContentSensitivity sensitivity;
@@ -25,6 +26,7 @@ class _SensitiveContentElement<S> extends ModifierElement<S> {
 }
 
 extension SensitiveContentModifier<S> on Modifier<S> {
+  /// Adds a [_SensitiveContentElement] to this [Modifier].
   Modifier<S> sensitiveContent({
     Key? key,
     required ContentSensitivity sensitivity,

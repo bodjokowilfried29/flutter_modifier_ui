@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SliverEnsureSemantics] in a modifier chain.
 class _SliverEnsureSemanticsElement<S extends SliverScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -24,6 +25,7 @@ class _SliverEnsureSemanticsElement<S extends SliverScope>
 }
 
 extension SliverEnsureSemanticsModifier<S extends SliverScope> on Modifier<S> {
+  /// Adds a [_SliverEnsureSemanticsElement] to this [Modifier].
   Modifier<S> sliverEnsureSemantics({Key? key}) {
     return then(_SliverEnsureSemanticsElement<S>(key: key));
   }

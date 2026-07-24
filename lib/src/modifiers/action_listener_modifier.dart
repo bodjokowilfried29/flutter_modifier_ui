@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents an [ActionListener] in a modifier chain.
 class _ActionListenerElement<S> extends ModifierElement<S> {
   final Key? key;
   final void Function(Action<Intent>) listener;
@@ -34,6 +35,7 @@ class _ActionListenerElement<S> extends ModifierElement<S> {
 }
 
 extension ActionListenerModifier<S> on Modifier<S> {
+  /// Adds an [_ActionListenerElement] to this [Modifier].
   Modifier<S> actionListener({
     Key? key,
     required void Function(Action<Intent>) listener,

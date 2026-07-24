@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [InkWell] in a modifier chain.
 class _InkWellElement<S> extends ModifierElement<S> {
   final Key? key;
   final void Function()? onTap;
@@ -154,6 +155,7 @@ class _InkWellElement<S> extends ModifierElement<S> {
 }
 
 extension InkWellModifier<S> on Modifier<S> {
+  /// Adds a [_InkWellElement] to this [Modifier].
   Modifier<S> inkWell({
     Key? key,
     void Function()? onTap,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [IgnorePointer] in a modifier chain.
 class _IgnorePointerElement<S> extends ModifierElement<S> {
   final Key? key;
   final bool ignoring;
@@ -34,6 +35,7 @@ class _IgnorePointerElement<S> extends ModifierElement<S> {
 }
 
 extension IgnorePointerModifier<S> on Modifier<S> {
+  /// Adds a [_IgnorePointerElement] to this [Modifier].
   Modifier<S> ignorePointer({
     Key? key,
     bool ignoring = true,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [MergeSemantics] in a modifier chain.
 class _MergeSemanticsElement<S> extends ModifierElement<S> {
   final Key? key;
 
@@ -23,6 +24,7 @@ class _MergeSemanticsElement<S> extends ModifierElement<S> {
 }
 
 extension MergeSemanticsModifier<S> on Modifier<S> {
+  /// Adds a [_MergeSemanticsElement] to this [Modifier].
   Modifier<S> mergeSemantics({Key? key}) {
     return then(_MergeSemanticsElement<S>(key: key));
   }

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [DecoratedBox] in a modifier chain.
 class _DecoratedBoxElement<S> extends ModifierElement<S> {
   final Key? key;
   final Decoration decoration;
@@ -34,6 +35,7 @@ class _DecoratedBoxElement<S> extends ModifierElement<S> {
 }
 
 extension DecoratedBoxModifier<S> on Modifier<S> {
+  /// Adds a [_DecoratedBoxElement] to this [Modifier].
   Modifier<S> decoratedBox({
     Key? key,
     required Decoration decoration,

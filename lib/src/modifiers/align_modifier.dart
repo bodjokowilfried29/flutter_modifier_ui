@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents an [Align] in a modifier chain.
 class _AlignElement<S> extends ModifierElement<S> {
   final Key? key;
   final AlignmentGeometry alignment;
@@ -37,6 +38,7 @@ class _AlignElement<S> extends ModifierElement<S> {
 }
 
 extension AlignModifier<S> on Modifier<S> {
+  /// Adds an [_AlignElement] to this [Modifier].
   Modifier<S> align({
     Key? key,
     AlignmentGeometry alignment = Alignment.center,

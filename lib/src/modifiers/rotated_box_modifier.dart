@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [RotatedBox] in a modifier chain.
 class _RotatedBoxElement<S> extends ModifierElement<S> {
   final Key? key;
   final int quarterTurns;
@@ -24,6 +25,7 @@ class _RotatedBoxElement<S> extends ModifierElement<S> {
 }
 
 extension RotatedBoxModifier<S> on Modifier<S> {
+  /// Adds a [_RotatedBoxElement] to this [Modifier].
   Modifier<S> rotatedBox({Key? key, required int quarterTurns}) {
     return then(_RotatedBoxElement<S>(key: key, quarterTurns: quarterTurns));
   }

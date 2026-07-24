@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SingleChildScrollView] in a modifier chain.
 class _SingleChildScrollViewElement<S> extends ModifierElement<S> {
   final Key? key;
   final Axis scrollDirection;
@@ -75,6 +76,7 @@ class _SingleChildScrollViewElement<S> extends ModifierElement<S> {
 }
 
 extension SingleChildScrollViewModifier<S> on Modifier<S> {
+  /// Adds a [_SingleChildScrollViewElement] to this [Modifier].
   Modifier<S> singleChildScrollView({
     Key? key,
     Axis scrollDirection = Axis.vertical,

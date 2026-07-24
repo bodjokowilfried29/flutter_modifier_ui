@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [IntrinsicWidth] in a modifier chain.
 class _IntrinsicWidthElement<S> extends ModifierElement<S> {
   final Key? key;
   final double? stepWidth;
@@ -30,6 +31,7 @@ class _IntrinsicWidthElement<S> extends ModifierElement<S> {
 }
 
 extension IntrinsicWidthModifier<S> on Modifier<S> {
+  /// Adds a [_IntrinsicWidthElement] to this [Modifier].
   Modifier<S> intrinsicWidth({
     Key? key,
     double? stepWidth,

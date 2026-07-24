@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [GestureDetector] in a modifier chain.
 class _GestureDetectorElement<S> extends ModifierElement<S> {
   final Key? key;
   final void Function(TapDownDetails)? onTapDown;
@@ -289,6 +290,7 @@ class _GestureDetectorElement<S> extends ModifierElement<S> {
 }
 
 extension GestureDetectorModifier<S> on Modifier<S> {
+  /// Adds a [_GestureDetectorElement] to this [Modifier].
   Modifier<S> gestureDetector({
     Key? key,
     void Function(TapDownDetails)? onTapDown,

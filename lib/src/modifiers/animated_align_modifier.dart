@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents an [AnimatedAlign] in a modifier chain.
 class _AnimatedAlignElement<S> extends ModifierElement<S> {
   final Key? key;
   final AlignmentGeometry alignment;
@@ -54,6 +55,7 @@ class _AnimatedAlignElement<S> extends ModifierElement<S> {
 }
 
 extension AnimatedAlignModifier<S> on Modifier<S> {
+  /// Adds an [_AnimatedAlignElement] to this [Modifier].
   Modifier<S> animatedAlign({
     Key? key,
     required AlignmentGeometry alignment,

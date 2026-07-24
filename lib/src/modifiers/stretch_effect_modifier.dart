@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [StretchEffect] in a modifier chain.
 class _StretchEffectElement<S> extends ModifierElement<S> {
   final Key? key;
   final double stretchStrength;
@@ -34,6 +35,7 @@ class _StretchEffectElement<S> extends ModifierElement<S> {
 }
 
 extension StretchEffectModifier<S> on Modifier<S> {
+  /// Adds a [_StretchEffectElement] to this [Modifier].
   Modifier<S> stretchEffect({
     Key? key,
     double stretchStrength = 0.0,

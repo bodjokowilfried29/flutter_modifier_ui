@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SafeArea] in a modifier chain.
 class _SafeAreaElement<S> extends ModifierElement<S> {
   final Key? key;
   final bool left;
@@ -54,6 +55,7 @@ class _SafeAreaElement<S> extends ModifierElement<S> {
 }
 
 extension SafeAreaModifier<S> on Modifier<S> {
+  /// Adds a [_SafeAreaElement] to this [Modifier].
   Modifier<S> safeArea({
     Key? key,
     bool left = true,

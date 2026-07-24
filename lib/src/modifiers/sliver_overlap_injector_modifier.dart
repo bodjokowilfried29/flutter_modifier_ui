@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SliverOverlapInjector] in a modifier chain.
 class _SliverOverlapInjectorElement<S extends SliverScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -25,6 +26,7 @@ class _SliverOverlapInjectorElement<S extends SliverScope>
 }
 
 extension SliverOverlapInjectorModifier<S extends SliverScope> on Modifier<S> {
+  /// Adds a [_SliverOverlapInjectorElement] to this [Modifier].
   Modifier<S> sliverOverlapInjector({
     Key? key,
     required SliverOverlapAbsorberHandle handle,

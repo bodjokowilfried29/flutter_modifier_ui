@@ -360,7 +360,7 @@ that composes native Flutter widgets under the hood using a cleaner, high perfor
 **Can I create my own custom modifiers?** Yes, absolutely! **Flutter Modifier UI** is designed to be
 fully extensible. You can easily create custom modifiers by following these steps:
 
-1. **Create a custom element class** that inherits froom `ModifierElement<S>` and implements its
+1. **Create a custom element class** that inherits from `ModifierElement<S>` and implements its
    required structure:
     - `buid(Widget child)` : Define the widget layout composition.
 
@@ -402,3 +402,7 @@ final modifier = const Modifier().scale(scale: 1.0);
 independent of your state management layer. It optimizes at the Flutter rendering/element level
 
 **Does it support Hot Reload?** Yes, fully supported.
+
+## Maintainers
+
+- [**Wilfried Bodjoko**](https://github.com/bodjokowilfried29)

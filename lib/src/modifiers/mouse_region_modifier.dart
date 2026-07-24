@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [MouseRegion] in a modifier chain.
 class _MouseRegionElement<S> extends ModifierElement<S> {
   final Key? key;
   final void Function(PointerEnterEvent)? onEnter;
@@ -55,6 +56,7 @@ class _MouseRegionElement<S> extends ModifierElement<S> {
 }
 
 extension MouseRegionModifier<S> on Modifier<S> {
+  /// Adds a [_MouseRegionElement] to this [Modifier].
   Modifier<S> mouseRegion({
     Key? key,
     void Function(PointerEnterEvent)? onEnter,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SliverOffstage] in a modifier chain.
 class _SliverOffstageElement<S extends SliverScope> extends ModifierElement<S> {
   final Key? key;
   final bool offstage;
@@ -24,6 +25,7 @@ class _SliverOffstageElement<S extends SliverScope> extends ModifierElement<S> {
 }
 
 extension SliverOffstageModifier<S extends SliverScope> on Modifier<S> {
+  /// Adds a [_SliverOffstageElement] to this [Modifier].
   Modifier<S> sliverOffstage({Key? key, bool offstage = true}) {
     return then(_SliverOffstageElement<S>(key: key, offstage: offstage));
   }

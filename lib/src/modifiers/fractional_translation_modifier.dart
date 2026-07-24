@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [FractionalTranslation] in a modifier chain.
 class _FractionalTranslationElement<S> extends ModifierElement<S> {
   final Key? key;
   final Offset translation;
@@ -34,6 +35,7 @@ class _FractionalTranslationElement<S> extends ModifierElement<S> {
 }
 
 extension FractionalTranslationModifier<S> on Modifier<S> {
+  /// Adds a [_FractionalTranslationElement] to this [Modifier].
   Modifier<S> fractionalTranslation({
     Key? key,
     required Offset translation,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [TapRegionSurface] in a modifier chain.
 class _TapRegionSurfaceElement<S> extends ModifierElement<S> {
   final Key? key;
 
@@ -23,6 +24,7 @@ class _TapRegionSurfaceElement<S> extends ModifierElement<S> {
 }
 
 extension TapRegionSurfaceModifier<S> on Modifier<S> {
+  /// Adds a [_TapRegionSurfaceElement] to this [Modifier].
   Modifier<S> tapRegionSurface({Key? key}) {
     return then(_TapRegionSurfaceElement<S>(key: key));
   }

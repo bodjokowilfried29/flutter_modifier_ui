@@ -8,6 +8,7 @@ import 'package:flutter/rendering.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SliverSemantics] in a modifier chain.
 class _SliverSemanticsElement<S extends SliverScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -362,6 +363,7 @@ class _SliverSemanticsElement<S extends SliverScope>
 }
 
 extension SliverSemanticsModifier<S extends SliverScope> on Modifier<S> {
+  /// Adds a [_SliverSemanticsElement] to this [Modifier].
   Modifier<S> sliverSemantics({
     Key? key,
     bool container = false,
@@ -537,6 +539,7 @@ extension SliverSemanticsModifier<S extends SliverScope> on Modifier<S> {
   }
 }
 
+/// Represents a [SliverSemantics.fromProperties] in a modifier chain.
 class _SliverSemanticsFromPropertiesElement<S extends SliverScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -588,6 +591,7 @@ class _SliverSemanticsFromPropertiesElement<S extends SliverScope>
 
 extension SliverSemanticsFromPropertiesModifier<S extends SliverScope>
     on Modifier<S> {
+  /// Adds a [_SliverSemanticsFromPropertiesElement] to this [Modifier].
   Modifier<S> sliverSemanticsFromProperties({
     Key? key,
     bool container = false,

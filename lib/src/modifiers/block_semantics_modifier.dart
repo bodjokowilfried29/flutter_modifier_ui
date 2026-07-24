@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [BlockSemantics] in a modifier chain.
 class _BlockSemanticsElement<S> extends ModifierElement<S> {
   final Key? key;
   final bool blocking;
@@ -24,6 +25,7 @@ class _BlockSemanticsElement<S> extends ModifierElement<S> {
 }
 
 extension BlockSemanticsModifier<S> on Modifier<S> {
+  /// Adds a [_BlockSemanticsElement] to this [Modifier].
   Modifier<S> blockSemantics({Key? key, bool blocking = true}) {
     return then(_BlockSemanticsElement<S>(key: key, blocking: blocking));
   }

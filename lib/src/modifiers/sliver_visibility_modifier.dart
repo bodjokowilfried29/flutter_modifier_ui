@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SliverVisibility] in a modifier chain.
 class _SliverVisibilityElement<S extends SliverScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -59,6 +60,7 @@ class _SliverVisibilityElement<S extends SliverScope>
 }
 
 extension SliverVisibilityModifier<S extends SliverScope> on Modifier<S> {
+  /// Adds a [_SliverVisibilityElement] to this [Modifier].
   Modifier<S> sliverVisibility({
     Key? key,
     Widget replacementSliver = const SliverToBoxAdapter(),
@@ -84,6 +86,7 @@ extension SliverVisibilityModifier<S extends SliverScope> on Modifier<S> {
   }
 }
 
+/// Represents a [SliverVisibility.maintain] in a modifier chain.
 class _SliverVisibilityMaintainElement<S extends SliverScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -115,6 +118,7 @@ class _SliverVisibilityMaintainElement<S extends SliverScope>
 
 extension SliverVisibilityMaintainModifier<S extends SliverScope>
     on Modifier<S> {
+  /// Adds a [_SliverVisibilityMaintainElement] to this [Modifier].
   Modifier<S> sliverVisibilityMaintain({
     Key? key,
     Widget replacementSliver = const SliverToBoxAdapter(),

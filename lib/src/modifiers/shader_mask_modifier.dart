@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [ShaderMask] in a modifier chain.
 class _ShaderMaskElement<S> extends ModifierElement<S> {
   final Key? key;
   final Shader Function(Rect) shaderCallback;
@@ -34,6 +35,7 @@ class _ShaderMaskElement<S> extends ModifierElement<S> {
 }
 
 extension ShaderMaskModifier<S> on Modifier<S> {
+  /// Adds a [_ShaderMaskElement] to this [Modifier].
   Modifier<S> shaderMask({
     Key? key,
     required Shader Function(Rect) shaderCallback,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [ClipRSuperellipse] in a modifier chain.
 class _ClipRSuperellipseElement<S> extends ModifierElement<S> {
   final Key? key;
   final BorderRadiusGeometry borderRadius;
@@ -37,6 +38,7 @@ class _ClipRSuperellipseElement<S> extends ModifierElement<S> {
 }
 
 extension ClipRSuperellipseModifier<S> on Modifier<S> {
+  /// Adds a [_ClipRSuperellipseElement] to this [Modifier].
   Modifier<S> clipRSuperellipse({
     Key? key,
     BorderRadiusGeometry borderRadius = BorderRadius.zero,

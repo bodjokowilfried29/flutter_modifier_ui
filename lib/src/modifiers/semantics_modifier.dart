@@ -8,6 +8,7 @@ import 'package:flutter/rendering.dart';
 
 import '../modifier.dart';
 
+/// Represents a [Semantics] in a modifier chain.
 class _SemanticsElement<S> extends ModifierElement<S> {
   final Key? key;
   final bool container;
@@ -361,6 +362,7 @@ class _SemanticsElement<S> extends ModifierElement<S> {
 }
 
 extension SemanticsModifier<S> on Modifier<S> {
+  /// Adds a [_SemanticsElement] to this [Modifier].
   Modifier<S> semantics({
     Key? key,
     bool container = false,
@@ -536,6 +538,7 @@ extension SemanticsModifier<S> on Modifier<S> {
   }
 }
 
+/// Represents a [Semantics.fromProperties] in a modifier chain.
 class _SemanticsFromPropertiesElement<S> extends ModifierElement<S> {
   final Key? key;
   final bool container;
@@ -585,6 +588,7 @@ class _SemanticsFromPropertiesElement<S> extends ModifierElement<S> {
 }
 
 extension SemanticsFromPropertiesModifier<S> on Modifier<S> {
+  /// Adds a [_SemanticsFromPropertiesElement] to this [Modifier].
   Modifier<S> semanticsFromProperties({
     Key? key,
     bool container = false,

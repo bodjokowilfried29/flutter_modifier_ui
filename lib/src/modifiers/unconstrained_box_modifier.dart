@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [UnconstrainedBox] in a modifier chain.
 class _UnconstrainedBoxElement<S> extends ModifierElement<S> {
   final Key? key;
   final TextDirection? textDirection;
@@ -46,6 +47,7 @@ class _UnconstrainedBoxElement<S> extends ModifierElement<S> {
 }
 
 extension UnconstrainedBoxModifier<S> on Modifier<S> {
+  /// Adds a [_UnconstrainedBoxElement] to this [Modifier].
   Modifier<S> unconstrainedBox({
     Key? key,
     TextDirection? textDirection,

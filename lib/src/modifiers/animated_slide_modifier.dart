@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents an [AnimatedSlide] in a modifier chain.
 class _AnimatedSlideElement<S> extends ModifierElement<S> {
   final Key? key;
   final Offset offset;
@@ -40,6 +41,7 @@ class _AnimatedSlideElement<S> extends ModifierElement<S> {
 }
 
 extension AnimatedSlideModifier<S> on Modifier<S> {
+  /// Adds an [_AnimatedSlideElement] to this [Modifier].
   Modifier<S> animatedSlide({
     Key? key,
     required Offset offset,

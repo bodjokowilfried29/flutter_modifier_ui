@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [PhysicalModel] in a modifier chain.
 class _PhysicalModelElement<S> extends ModifierElement<S> {
   final Key? key;
   final BoxShape shape;
@@ -54,6 +55,7 @@ class _PhysicalModelElement<S> extends ModifierElement<S> {
 }
 
 extension PhysicalModelModifier<S> on Modifier<S> {
+  /// Adds a [_PhysicalModelElement] to this [Modifier].
   Modifier<S> physicalModel({
     Key? key,
     BoxShape shape = BoxShape.rectangle,

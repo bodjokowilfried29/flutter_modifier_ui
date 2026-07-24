@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [Listener] in a modifier chain.
 class _ListenerElement<S> extends ModifierElement<S> {
   final Key? key;
   final void Function(PointerDownEvent)? onPointerDown;
@@ -71,6 +72,7 @@ class _ListenerElement<S> extends ModifierElement<S> {
 }
 
 extension ListenerModifier<S> on Modifier<S> {
+  /// Adds a [_ListenerElement] to this [Modifier].
   Modifier<S> listener({
     Key? key,
     void Function(PointerDownEvent)? onPointerDown,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [ExcludeSemantics] in a modifier chain.
 class _ExcludeSemanticsElement<S> extends ModifierElement<S> {
   final Key? key;
   final bool excluding;
@@ -24,6 +25,7 @@ class _ExcludeSemanticsElement<S> extends ModifierElement<S> {
 }
 
 extension ExcludeSemanticsModifier<S> on Modifier<S> {
+  /// Adds a [_ExcludeSemanticsElement] to this [Modifier].
   Modifier<S> excludeSemantics({Key? key, bool excluding = true}) {
     return then(_ExcludeSemanticsElement<S>(key: key, excluding: excluding));
   }

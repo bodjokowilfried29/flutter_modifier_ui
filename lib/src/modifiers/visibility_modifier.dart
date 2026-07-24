@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [Visibility] in a modifier chain.
 class _VisibilityElement<S> extends ModifierElement<S> {
   final Key? key;
   final Widget replacement;
@@ -62,6 +63,7 @@ class _VisibilityElement<S> extends ModifierElement<S> {
 }
 
 extension VisibilityModifier<S> on Modifier<S> {
+  /// Adds a [_VisibilityElement] to this [Modifier].
   Modifier<S> visibility({
     Key? key,
     Widget replacement = const SizedBox.shrink(),
@@ -89,6 +91,7 @@ extension VisibilityModifier<S> on Modifier<S> {
   }
 }
 
+/// Represents a [Visibility.maintain] in a modifier chain.
 class _VisibilityMaintainElement<S> extends ModifierElement<S> {
   final Key? key;
   final bool visible;
@@ -108,6 +111,7 @@ class _VisibilityMaintainElement<S> extends ModifierElement<S> {
 }
 
 extension VisibilityMaintainModifier<S> on Modifier<S> {
+  /// Adds a [_VisibilityMaintainElement] to this [Modifier].
   Modifier<S> visibilityMaintain({Key? key, bool visible = true}) {
     return then(_VisibilityMaintainElement<S>(key: key, visible: visible));
   }

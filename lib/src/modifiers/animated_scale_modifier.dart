@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents an [AnimatedScale] in a modifier chain.
 class _AnimatedScaleElement<S> extends ModifierElement<S> {
   final Key? key;
   final double scale;
@@ -54,6 +55,7 @@ class _AnimatedScaleElement<S> extends ModifierElement<S> {
 }
 
 extension AnimatedScaleModifier<S> on Modifier<S> {
+  /// Adds an [_AnimatedScaleElement] to this [Modifier].
   Modifier<S> animatedScale({
     Key? key,
     required double scale,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SliverSafeArea] in a modifier chain.
 class _SliverSafeAreaElement<S extends SliverScope> extends ModifierElement<S> {
   final Key? key;
   final bool left;
@@ -43,6 +44,7 @@ class _SliverSafeAreaElement<S extends SliverScope> extends ModifierElement<S> {
 }
 
 extension SliverSafeAreaModifier<S extends SliverScope> on Modifier<S> {
+  /// Adds a [_SliverSafeAreaElement] to this [Modifier].
   Modifier<S> sliverSafeArea({
     Key? key,
     bool left = true,

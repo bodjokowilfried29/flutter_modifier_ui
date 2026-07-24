@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents an [AnimatedPositioned] in a modifier chain.
 class _AnimatedPositionedElement<S extends StackScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -67,6 +68,7 @@ class _AnimatedPositionedElement<S extends StackScope>
 }
 
 extension AnimatedPositionedModifier<S extends StackScope> on Modifier<S> {
+  /// Adds an [_AnimatedPositionedElement] to this [Modifier].
   Modifier<S> animatedPositioned({
     Key? key,
     double? left,
@@ -96,6 +98,7 @@ extension AnimatedPositionedModifier<S extends StackScope> on Modifier<S> {
   }
 }
 
+/// Represents an [AnimatedPositioned.fromRect] in a modifier chain.
 class _AnimatedPositionedFromRectElement<S extends StackScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -133,6 +136,7 @@ class _AnimatedPositionedFromRectElement<S extends StackScope>
 
 extension AnimatedPositionedFromRectModifier<S extends StackScope>
     on Modifier<S> {
+  /// Adds an [_AnimatedPositionedFromRectElement] to this [Modifier].
   Modifier<S> animatedPositionedFromRect({
     Key? key,
     required Rect rect,

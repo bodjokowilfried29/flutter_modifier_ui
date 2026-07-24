@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [TapRegion] in a modifier chain.
 class _TapRegionElement<S> extends ModifierElement<S> {
   final Key? key;
   final bool enabled;
@@ -66,6 +67,7 @@ class _TapRegionElement<S> extends ModifierElement<S> {
 }
 
 extension TapRegionModifier<S> on Modifier<S> {
+  /// Adds a [_TapRegionElement] to this [Modifier].
   Modifier<S> tapRegion({
     Key? key,
     bool enabled = true,

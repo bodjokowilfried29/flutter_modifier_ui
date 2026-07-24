@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SliverPadding] in a modifier chain.
 class _SliverPaddingElement<S extends SliverScope> extends ModifierElement<S> {
   final Key? key;
   final EdgeInsetsGeometry padding;
@@ -24,6 +25,7 @@ class _SliverPaddingElement<S extends SliverScope> extends ModifierElement<S> {
 }
 
 extension SliverPaddingModifier<S extends SliverScope> on Modifier<S> {
+  /// Adds a [_SliverPaddingElement] to this [Modifier].
   Modifier<S> sliverPadding({Key? key, required EdgeInsetsGeometry padding}) {
     return then(_SliverPaddingElement<S>(key: key, padding: padding));
   }

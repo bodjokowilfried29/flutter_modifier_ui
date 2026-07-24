@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents an [AnimatedPadding] in a modifier chain.
 class _AnimatedPaddingElement<S> extends ModifierElement<S> {
   final Key? key;
   final EdgeInsetsGeometry padding;
@@ -40,6 +41,7 @@ class _AnimatedPaddingElement<S> extends ModifierElement<S> {
 }
 
 extension AnimatedPaddingModifier<S> on Modifier<S> {
+  /// Adds an [_AnimatedPaddingElement] to this [Modifier].
   Modifier<S> animatedPadding({
     Key? key,
     required EdgeInsetsGeometry padding,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [ViewAnchor] in a modifier chain.
 class _ViewAnchorElement<S> extends ModifierElement<S> {
   final Key? key;
   final Widget? view;
@@ -24,6 +25,7 @@ class _ViewAnchorElement<S> extends ModifierElement<S> {
 }
 
 extension ViewAnchorModifier<S> on Modifier<S> {
+  /// Adds a [_ViewAnchorElement] to this [Modifier].
   Modifier<S> viewAnchor({Key? key, Widget? view}) {
     return then(_ViewAnchorElement<S>(key: key, view: view));
   }

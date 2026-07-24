@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [DecoratedSliver] in a modifier chain.
 class _DecoratedSliverElement<S extends SliverScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -35,6 +36,7 @@ class _DecoratedSliverElement<S extends SliverScope>
 }
 
 extension DecoratedSliverModifier<S extends SliverScope> on Modifier<S> {
+  /// Adds a [_DecoratedSliverElement] to this [Modifier].
   Modifier<S> decoratedSliver({
     Key? key,
     required Decoration decoration,

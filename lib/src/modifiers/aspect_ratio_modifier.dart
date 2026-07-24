@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents an [AspectRatio] in a modifier chain.
 class _AspectRatioElement<S> extends ModifierElement<S> {
   final Key? key;
   final double aspectRatio;
@@ -24,6 +25,7 @@ class _AspectRatioElement<S> extends ModifierElement<S> {
 }
 
 extension AspectRatioModifier<S> on Modifier<S> {
+  /// Adds an [_AspectRatioElement] to this [Modifier].
   Modifier<S> aspectRatio({Key? key, required double aspectRatio}) {
     return then(_AspectRatioElement<S>(key: key, aspectRatio: aspectRatio));
   }

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [ColorFiltered] in a modifier chain.
 class _ColorFilteredElement<S> extends ModifierElement<S> {
   final ColorFilter colorFilter;
   final Key? key;
@@ -24,6 +25,7 @@ class _ColorFilteredElement<S> extends ModifierElement<S> {
 }
 
 extension ColorFilteredModifier<S> on Modifier<S> {
+  /// Adds a [_ColorFilteredElement] to this [Modifier].
   Modifier<S> colorFiltered({required ColorFilter colorFilter, Key? key}) {
     return then(_ColorFilteredElement<S>(colorFilter: colorFilter, key: key));
   }

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SizedBox] in a modifier chain.
 class _SizedBoxElement<S> extends ModifierElement<S> {
   final Key? key;
   final double? width;
@@ -25,11 +26,13 @@ class _SizedBoxElement<S> extends ModifierElement<S> {
 }
 
 extension SizedBoxModifier<S> on Modifier<S> {
+  /// Adds a [_SizedBoxElement] to this [Modifier].
   Modifier<S> sizedBox({Key? key, double? width, double? height}) {
     return then(_SizedBoxElement<S>(key: key, width: width, height: height));
   }
 }
 
+/// Represents a [SizedBox.expand] in a modifier chain.
 class _SizedBoxExpandElement<S> extends ModifierElement<S> {
   final Key? key;
 
@@ -48,11 +51,13 @@ class _SizedBoxExpandElement<S> extends ModifierElement<S> {
 }
 
 extension SizedBoxExpandModifier<S> on Modifier<S> {
+  /// Adds a [_SizedBoxExpandElement] to this [Modifier].
   Modifier<S> sizedBoxExpand({Key? key}) {
     return then(_SizedBoxExpandElement<S>(key: key));
   }
 }
 
+/// Represents a [SizedBox.shrink] in a modifier chain.
 class _SizedBoxShrinkElement<S> extends ModifierElement<S> {
   final Key? key;
 
@@ -71,11 +76,13 @@ class _SizedBoxShrinkElement<S> extends ModifierElement<S> {
 }
 
 extension SizedBoxShrinkModifier<S> on Modifier<S> {
+  /// Adds a [_SizedBoxShrinkElement] to this [Modifier].
   Modifier<S> sizedBoxShrink({Key? key}) {
     return then(_SizedBoxShrinkElement<S>(key: key));
   }
 }
 
+/// Represents a [SizedBox.fromSize] in a modifier chain.
 class _SizedBoxFromSizeElement<S> extends ModifierElement<S> {
   final Key? key;
   final Size? size;
@@ -95,11 +102,13 @@ class _SizedBoxFromSizeElement<S> extends ModifierElement<S> {
 }
 
 extension SizedBoxFromSizeModifier<S> on Modifier<S> {
+  /// Adds a [_SizedBoxFromSizeElement] to this [Modifier].
   Modifier<S> sizedBoxFromSize({Key? key, Size? size}) {
     return then(_SizedBoxFromSizeElement<S>(key: key, size: size));
   }
 }
 
+/// Represents a [SizedBox.square] in a modifier chain.
 class _SizedBoxSquareElement<S> extends ModifierElement<S> {
   final Key? key;
   final double? dimension;
@@ -119,6 +128,7 @@ class _SizedBoxSquareElement<S> extends ModifierElement<S> {
 }
 
 extension SizedBoxSquareModifier<S> on Modifier<S> {
+  /// Adds a [_SizedBoxSquareElement] to this [Modifier].
   Modifier<S> sizedBoxSquare({Key? key, double? dimension}) {
     return then(_SizedBoxSquareElement<S>(key: key, dimension: dimension));
   }

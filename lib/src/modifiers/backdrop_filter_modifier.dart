@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [BackdropFilter] in a modifier chain.
 class _BackdropFilterElement<S> extends ModifierElement<S> {
   final Key? key;
   final ImageFilter? filter;
@@ -52,6 +53,7 @@ class _BackdropFilterElement<S> extends ModifierElement<S> {
 }
 
 extension BackdropFilterModifier<S> on Modifier<S> {
+  /// Adds a [_BackdropFilterElement] to this [Modifier].
   Modifier<S> backdropFilter({
     Key? key,
     ImageFilter? filter,
@@ -73,6 +75,7 @@ extension BackdropFilterModifier<S> on Modifier<S> {
   }
 }
 
+/// Represents a [BackdropFilter.grouped] in a modifier chain.
 class _BackdropFilterGroupedElement<S> extends ModifierElement<S> {
   final Key? key;
   final ImageFilter? filter;
@@ -114,6 +117,7 @@ class _BackdropFilterGroupedElement<S> extends ModifierElement<S> {
 }
 
 extension BackdropFilterGroupedModifier<S> on Modifier<S> {
+  /// Adds a [_BackdropFilterGroupedElement] to this [Modifier].
   Modifier<S> backdropFilterGrouped({
     Key? key,
     ImageFilter? filter,

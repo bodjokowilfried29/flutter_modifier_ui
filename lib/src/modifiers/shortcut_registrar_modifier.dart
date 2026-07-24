@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [ShortcutRegistrar] in a modifier chain.
 class _ShortcutRegistrarElement<S> extends ModifierElement<S> {
   final Key? key;
 
@@ -23,6 +24,7 @@ class _ShortcutRegistrarElement<S> extends ModifierElement<S> {
 }
 
 extension ShortcutRegistrarModifier<S> on Modifier<S> {
+  /// Adds a [_ShortcutRegistrarElement] to this [Modifier].
   Modifier<S> shortcutRegistrar({Key? key}) {
     return then(_ShortcutRegistrarElement<S>(key: key));
   }

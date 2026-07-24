@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [Flexible] in a modifier chain.
 class _FlexibleElement<S extends FlexScope> extends ModifierElement<S> {
   final Key? key;
   final int flex;
@@ -25,6 +26,7 @@ class _FlexibleElement<S extends FlexScope> extends ModifierElement<S> {
 }
 
 extension FlexibleModifier<S extends FlexScope> on Modifier<S> {
+  /// Adds a [_FlexibleElement] to this [Modifier].
   Modifier<S> flexible({Key? key, int flex = 1, FlexFit fit = FlexFit.loose}) {
     return then(_FlexibleElement<S>(key: key, flex: flex, fit: fit));
   }

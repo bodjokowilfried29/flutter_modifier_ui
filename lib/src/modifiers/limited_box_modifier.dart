@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [LimitedBox] in a modifier chain.
 class _LimitedBoxElement<S> extends ModifierElement<S> {
   final Key? key;
   final double maxWidth;
@@ -34,6 +35,7 @@ class _LimitedBoxElement<S> extends ModifierElement<S> {
 }
 
 extension LimitedBoxModifier<S> on Modifier<S> {
+  /// Adds a [_LimitedBoxElement] to this [Modifier].
   Modifier<S> limitedBox({
     Key? key,
     double maxWidth = double.infinity,

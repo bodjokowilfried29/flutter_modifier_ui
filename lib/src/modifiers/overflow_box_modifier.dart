@@ -6,6 +6,7 @@ import 'package:flutter/rendering.dart';
 
 import '../modifier.dart';
 
+/// Represents a [OverflowBox] in a modifier chain.
 class _OverflowBoxElement<S> extends ModifierElement<S> {
   final Key? key;
   final AlignmentGeometry alignment;
@@ -55,6 +56,7 @@ class _OverflowBoxElement<S> extends ModifierElement<S> {
 }
 
 extension OverflowBoxModifier<S> on Modifier<S> {
+  /// Adds a [_OverflowBoxElement] to this [Modifier].
   Modifier<S> overflowBox({
     Key? key,
     AlignmentGeometry alignment = Alignment.center,

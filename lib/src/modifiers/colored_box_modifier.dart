@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [ColoredBox] in a modifier chain.
 class _ColoredBoxElement<S> extends ModifierElement<S> {
   final Color color;
   final bool isAntiAlias;
@@ -34,6 +35,7 @@ class _ColoredBoxElement<S> extends ModifierElement<S> {
 }
 
 extension ColoredBoxModifier<S> on Modifier<S> {
+  /// Adds a [_ColoredBoxElement] to this [Modifier].
   Modifier<S> coloredBox({
     required Color color,
     bool isAntiAlias = true,

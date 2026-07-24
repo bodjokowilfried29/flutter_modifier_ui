@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [ClipRRect] in a modifier chain.
 class _ClipRRectElement<S> extends ModifierElement<S> {
   final Key? key;
   final BorderRadiusGeometry borderRadius;
@@ -37,6 +38,7 @@ class _ClipRRectElement<S> extends ModifierElement<S> {
 }
 
 extension ClipRRectModifier<S> on Modifier<S> {
+  /// Adds a [_ClipRRectElement] to this [Modifier].
   Modifier<S> clipRRect({
     Key? key,
     BorderRadiusGeometry borderRadius = BorderRadius.zero,

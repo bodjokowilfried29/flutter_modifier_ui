@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [SliverFillRemaining] in a modifier chain.
 class _SliverFillRemainingElement<S extends SliverScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -35,6 +36,7 @@ class _SliverFillRemainingElement<S extends SliverScope>
 }
 
 extension SliverFillRemainingModifier<S extends SliverScope> on Modifier<S> {
+  /// Adds a [_SliverFillRemainingElement] to this [Modifier].
   Modifier<S> sliverFillRemaining({
     Key? key,
     bool hasScrollBody = true,

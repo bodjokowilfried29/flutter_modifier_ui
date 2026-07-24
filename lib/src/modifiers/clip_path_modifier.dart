@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [ClipPath] in a modifier chain.
 class _ClipPathElement<S> extends ModifierElement<S> {
   final Key? key;
   final CustomClipper<Path>? clipper;
@@ -34,6 +35,7 @@ class _ClipPathElement<S> extends ModifierElement<S> {
 }
 
 extension ClipPathModifier<S> on Modifier<S> {
+  /// Adds a [_ClipPathElement] to this [Modifier].
   Modifier<S> clipPath({
     Key? key,
     CustomClipper<Path>? clipper,

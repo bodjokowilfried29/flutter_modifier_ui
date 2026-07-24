@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [Focus] in a modifier chain.
 class _FocusElement<S> extends ModifierElement<S> {
   final Key? key;
   final FocusNode? focusNode;
@@ -78,6 +79,7 @@ class _FocusElement<S> extends ModifierElement<S> {
 }
 
 extension FocusModifier<S> on Modifier<S> {
+  /// Adds a [_FocusElement] to this [Modifier].
   Modifier<S> focus({
     Key? key,
     FocusNode? focusNode,
@@ -113,6 +115,7 @@ extension FocusModifier<S> on Modifier<S> {
   }
 }
 
+/// Represents a [Focus.withExternalFocusNode] in a modifier chain.
 class _FocusWithExternalFocusNodeElement<S> extends ModifierElement<S> {
   final Key? key;
   final FocusNode focusNode;
@@ -158,6 +161,7 @@ class _FocusWithExternalFocusNodeElement<S> extends ModifierElement<S> {
 }
 
 extension FocusWithExternalFocusNodeModifier<S> on Modifier<S> {
+  /// Adds a [_FocusWithExternalFocusNodeElement] to this [Modifier].
   Modifier<S> focusWithExternalFocusNode({
     Key? key,
     required FocusNode focusNode,

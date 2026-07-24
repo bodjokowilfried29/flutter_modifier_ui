@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [Shortcuts] in a modifier chain.
 class _ShortcutsElement<S> extends ModifierElement<S> {
   final Key? key;
   final Map<ShortcutActivator, Intent> shortcuts;
@@ -42,6 +43,7 @@ class _ShortcutsElement<S> extends ModifierElement<S> {
 }
 
 extension ShortcutsModifier<S> on Modifier<S> {
+  /// Adds a [_ShortcutsElement] to this [Modifier].
   Modifier<S> shortcuts({
     Key? key,
     required Map<ShortcutActivator, Intent> shortcuts,
@@ -59,6 +61,7 @@ extension ShortcutsModifier<S> on Modifier<S> {
   }
 }
 
+/// Represents a [ShortcutManager] in a modifier chain.
 class _ShortcutsManagerElement<S> extends ModifierElement<S> {
   final Key? key;
   final ShortcutManager manager;
@@ -91,6 +94,7 @@ class _ShortcutsManagerElement<S> extends ModifierElement<S> {
 }
 
 extension ShortcutsManagerModifier<S> on Modifier<S> {
+  /// Adds a [_ShortcutsManagerElement] to this [Modifier].
   Modifier<S> shortcutsManager({
     Key? key,
     required ShortcutManager manager,

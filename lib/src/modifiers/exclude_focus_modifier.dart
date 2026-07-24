@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [ExcludeFocus] in a modifier chain.
 class _ExcludeFocusElement<S> extends ModifierElement<S> {
   final Key? key;
   final bool excluding;
@@ -24,6 +25,7 @@ class _ExcludeFocusElement<S> extends ModifierElement<S> {
 }
 
 extension ExcludeFocusModifier<S> on Modifier<S> {
+  /// Adds a [_ExcludeFocusElement] to this [Modifier].
   Modifier<S> excludeFocus({Key? key, bool excluding = true}) {
     return then(_ExcludeFocusElement<S>(key: key, excluding: excluding));
   }

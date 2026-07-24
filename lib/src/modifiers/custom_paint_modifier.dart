@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Adds a [CustomPaint] to this [Modifier].
 class _CustomPaintElement<S> extends ModifierElement<S> {
   final Key? key;
   final CustomPainter? painter;
@@ -50,6 +51,7 @@ class _CustomPaintElement<S> extends ModifierElement<S> {
 }
 
 extension CustomPaintModifier<S> on Modifier<S> {
+  /// Adds a [_CustomPaintElement] to this [Modifier].
   Modifier<S> customPaint({
     Key? key,
     CustomPainter? painter,

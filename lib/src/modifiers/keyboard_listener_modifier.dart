@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents a [KeyboardListener] in a modifier chain.
 class _KeyboardListenerElement<S> extends ModifierElement<S> {
   final Key? key;
   final FocusNode focusNode;
@@ -46,6 +47,7 @@ class _KeyboardListenerElement<S> extends ModifierElement<S> {
 }
 
 extension KeyboardListenerModifier<S> on Modifier<S> {
+  /// Adds a [_KeyboardListenerElement] to this [Modifier].
   Modifier<S> keyboardListener({
     Key? key,
     required FocusNode focusNode,

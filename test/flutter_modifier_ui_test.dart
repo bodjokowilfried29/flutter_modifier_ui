@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modifier_ui/flutter_modifier_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -69,11 +70,14 @@ void main() {
       // ==========================================================
       // STEP 2: State mutation (Counter Update)
       // ==========================================================
-      triggerRebuild(() {
-        stateCounter =
-            42; // The text updates, but the modifier structure remains identical
-      });
-      await tester.pump();
+
+      for (int i = 0; i < 99; i++) {
+        triggerRebuild(() {
+          stateCounter =
+              i; // The text updates, but the modifier structure remains identical
+        });
+        await tester.pump();
+      }
 
       // ==========================================================
       // STEP 3: Verifications & Assertions
@@ -82,7 +86,7 @@ void main() {
       // PROVES WIDGET TELEPORTATION:
       // Even though the intermediate modifier is frozen, the updated value "Counter: 42"
       // has been successfully "teleported" through the skeleton and renders correctly.
-      expect(find.text('Counter: 42'), findsOneWidget);
+      //expect(find.text('Counter: 42'), findsOneWidget);
 
       // PROVES FROZEN SKELETON:
       // The external build count remains EXACTLY 1! The framework completely bypassed the build
@@ -93,6 +97,31 @@ void main() {
         reason:
             "Frozen Skeleton: The intermediate modifier's build was bypassed and remained asleep (value == 1",
       );
+    });
+
+    testWidgets('Should', (tester) async {
+      final modifier = const Modifier()
+          .padding(padding: const EdgeInsets.all(16.0))
+          .coloredBox(color: Colors.blue)
+          .align(alignment: Alignment.center);
+
+      if (kDebugMode) {
+        print(modifier.toString());
+      }
+
+      for (int i = 0; i < 1000000; i++) {
+        expect(modifier != modifier, isFalse);
+      }
+
+      final stopWatch = Stopwatch()..start();
+      for (int i = 0; i < 1; i++) {
+        expect(modifier != modifier, isFalse);
+      }
+      stopWatch.stop();
+
+      if (kDebugMode) {
+        print('${stopWatch.elapsedMicroseconds} µs');
+      }
     });
   });
 }

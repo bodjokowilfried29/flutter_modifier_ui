@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents an [AnimatedPositionedDirectional] in a modifier chain.
 class _AnimatedPositionedDirectionalElement<S extends StackScope>
     extends ModifierElement<S> {
   final Key? key;
@@ -67,6 +68,7 @@ class _AnimatedPositionedDirectionalElement<S extends StackScope>
 
 extension AnimatedPositionedDirectionalModifier<S extends StackScope>
     on Modifier<S> {
+  /// Adds an [_AnimatedPositionedDirectionalElement] to this [Modifier].
   Modifier<S> animatedPositionedDirectional({
     Key? key,
     double? start,

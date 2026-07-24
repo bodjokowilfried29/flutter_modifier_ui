@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../modifier.dart';
 
+/// Represents an [AnimatedPhysicalModel] in a modifier chain.
 class _AnimatedPhysicalModelElement<S> extends ModifierElement<S> {
   final Key? key;
   final BoxShape shape;
@@ -74,6 +75,7 @@ class _AnimatedPhysicalModelElement<S> extends ModifierElement<S> {
 }
 
 extension AnimatedPhysicalModelModifier<S> on Modifier<S> {
+  /// Adds an [_AnimatedPhysicalModelElement] to this [Modifier].
   Modifier<S> animatedPhysicalModel({
     Key? key,
     BoxShape shape = BoxShape.rectangle,
